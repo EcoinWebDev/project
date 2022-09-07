@@ -2,7 +2,7 @@
 require_once 'inc/config.php';
 $sql2 = "SELECT * FROM category";
 $q2 = mysqli_query($connect,$sql2) or die(mysqli_error($q2));
-
+$status = (isset($_GET['status']))?$_GET['status']:null;
  ?>
 
 
@@ -12,7 +12,7 @@ $q2 = mysqli_query($connect,$sql2) or die(mysqli_error($q2));
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 	
@@ -21,6 +21,10 @@ $q2 = mysqli_query($connect,$sql2) or die(mysqli_error($q2));
 		<button>Add Cat</button>
 	</form>
 
+<?php if ($status) {  ?>
+
+<div class="update">Updateed Ok Thanks</div>
+<?php } ?>
 
 <table border="1" cellpadding="7" cellspacing="0">
 	<caption>Cateory List</caption>
